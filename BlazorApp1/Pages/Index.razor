@@ -1,7 +1,46 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<h1>Calculadora</h1>
+<h2>Suma, Resta, Multiplicacion</h2>
 
-Welcome to your new app.
+<br />
+<h3>Introdusca los digitos</h3>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<br />
+
+<h4>Digite el primer numero:</h4>
+
+<input type="number" @bind="PrimerNumero" /> 
+
+<br />
+
+<h4>Digite el segundo numero:</h4>
+
+<input type="number" @bind="SegundoNumero" />
+
+<br />
+<br />
+
+<button class="btn btn-primary" @onclick="CALCULAR">CALCULAR</button>
+
+<br />
+<br />
+
+<p>Total de la Suma: @TotalSuma</p>
+<p>Total de la Resta: @TotalResta</p>
+<p>Total de la Multiplicacion: @TotalMultiplicacion</p>
+
+@code{ 
+    private int PrimerNumero { get; set; }
+    private int SegundoNumero { get; set; }
+    private int TotalSuma;
+    private int TotalResta;
+    private int TotalMultiplicacion;
+
+    private void CALCULAR()
+    {
+        TotalSuma = PrimerNumero + SegundoNumero;
+        TotalResta = PrimerNumero - SegundoNumero;
+        TotalMultiplicacion = PrimerNumero * SegundoNumero;
+    } 
+  }
